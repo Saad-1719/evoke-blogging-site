@@ -8,7 +8,7 @@ const page = () => {
 				<h1 className="py-10 flex items-center justify-center font-bold text-5xl">
 					About Me
 				</h1>
-				<div className="grid grid-cols-2 pt-10 space-x-10">
+				<div className="grid  grid-cols-1 sm:grid-cols-2 pt-10 sm:space-x-10 space-y-4 p-4">
 					<div>
 						<img
 							src="/assets/hero/WhatsApp Image 2024-08-05 at 16.55.18_761007bb.jpg"
