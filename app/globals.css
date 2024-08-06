@@ -17,6 +17,7 @@
 }
 
 body {
+  /* padding-top: 64px; */
   /* color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -26,14 +27,12 @@ body {
     rgb(var(--background-start-rgb)); */
 }
 
-@layer base {
-  .font-outline-2 {
-    -webkit-text-stroke: 2px black;
-  }
+@layer components {
 
-  .font-outline-4 {
-    -webkit-text-stroke: 4px black;
-  }
+}
+
+@layer base {
+
 }
 
 @layer utilities {

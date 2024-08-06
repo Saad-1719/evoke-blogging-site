@@ -7,7 +7,7 @@ type Props = {
 
 function Layout({ children, className }: Props) {
 	return (
-		<div className={`max-w-7xl mx-auto w-full ${className}`}>{children}</div>
+		<div className={`max-w-7xl mx-auto w-full ${className} pt-20`}>{children}</div>
 	);
 }
 
