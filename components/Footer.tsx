@@ -6,7 +6,7 @@ const Footer = () => {
 		<footer className="bg-slate-100 py-10">
 			<Layout>
 				<div className="grid grid-cols-1 p-4 sm:grid-cols-3 lg:grid-cols-4 place-items-center sm:place-items-start grid-col">
-					<div className="p-3 sm:col-span-1 lg:col-span-2">
+					<div className=" sm:col-span-1 lg:col-span-2">
 						<h1 className="pb-5 text-xl font-bold">Evoke.</h1>
 						<p className="text-gray-400">
 							A gentle stream named Evoke flows through their lives, summoning

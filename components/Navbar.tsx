@@ -30,9 +30,9 @@ const Navbar = () => {
 				isVisible ? "translate-y-0" : "-translate-y-full"
 			}`}
 		>
-			<nav className="flex justify-between items-center pt-4 pb-4 w-3/4 mx-auto">
+			<nav className="flex justify-between items-center py-4 px-4 xl:px-0 w-full sm:max-w-7xl mx-auto">
 				<ul>
-					<li className="flex text-2xl font-bold text-black px-4 py-2">
+					<li className="flex text-2xl font-bold text-black sm:py-2 ">
 						Evoke.
 					</li>
 				</ul>
@@ -83,6 +83,7 @@ const Navbar = () => {
 								key={index}
 								href={href}
 								className="rounded-lg bg-black w-full py-2 text-white/90"
+								onClick={()=>setView(!view)}
 							>
 								{["Home", "Blogs", "POV", "Gallery", "About Me"][index]}
 							</Link>

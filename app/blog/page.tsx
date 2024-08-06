@@ -5,9 +5,9 @@ import CommentSection from "@/components/CommentSection";
 
 const Blog = () => {
 	return (
-		<section className="w-full pt-20 pb-20 bg-slate-100 text-black flex items-center justify-center overflow-x-hidden flex-col">
+		<section className="w-full pb-20 bg-slate-100 text-black flex items-center justify-center overflow-x-hidden flex-col">
 			<Layout>
-				<div className="max-w-5xl py-8 mx-auto flex flex-col items-center">
+				<div className="max-w-5xl mx-auto flex flex-col items-center p-4">
 					<h1 className="text-7xl font-bold py-10">TITLE</h1>
 					<img
 						src="/assets/hero/birmingham-museums-trust-BPWZ01FtySg-unsplash.jpg"

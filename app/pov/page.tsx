@@ -82,7 +82,7 @@ const page = () => {
                 {/* Headings */}
 
                 <h1 className="text-7xl text-center py-6">POV</h1>
-                <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* pov cards */}
 					<div className="bg-slate-700 rounded-lg p-8  text-white shadow-lg relative">
 						<span className="absolute top-4 left-4 w-14 h-14 flex items-center justify-center">
