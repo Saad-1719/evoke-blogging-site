@@ -4,9 +4,9 @@ import React from "react";
 
 const Login = () => {
 	return (
-        <section className="flex flex-col items-center justify-center mx-auto h-screen w-full">
+        <section className="flex flex-col items-center justify-center mx-auto h-screen w-full bg-slate-500">
             {/* <Layout> */}
-            <div className=" w-1/4 px-4 border rounded-lg flex flex-col items-center justify-center space-y-5 py-5">
+            <div className="px-1 sm:px-4 py-2 sm:py-5 space-y-2 sm:space-y-5 border rounded-lg flex flex-col items-center justify-center   bg-slate-200">
 
             <h1 className="text-4xl">Login</h1>
 
