@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import Login from "./login/page";
+import Editor from "./editor/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,8 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Login/>
-        {/* <Navbar/>
+        {/* <Login/> */}
+        <Editor/>
+        {/* <Navbar />
         {children}
         <Newsletter />
         <Footer/> */}

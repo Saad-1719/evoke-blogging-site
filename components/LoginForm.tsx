@@ -7,7 +7,7 @@ const LoginForm = () => {
 
 	return (
 		// page not responsive  might change some design
-		<form className="space-y-5 flex flex-col pb-5">
+		<form className="space-y-5 flex flex-col pb-5 w-full px-5">
 			{/* <div className="flex justify-between  items-center">
 				<label htmlFor="email">Email:</label>
 				<input
@@ -33,7 +33,7 @@ const LoginForm = () => {
 				/>
 			</div> */}
 
-			<div className="flex flex-col  items-start space-y-1">
+			<div className="flex flex-col  items-start space-y-1 w-full">
 				<label htmlFor="email">Email</label>
 				<input
 					type="email"
@@ -61,7 +61,7 @@ const LoginForm = () => {
 			</div>
 			<button
 				type="submit"
-				className="text-center text-sm border bg-black text-white border-black py-1 px-2 rounded-full  hover:bg-black/70 transition-colors"
+				className="text-center text-sm border bg-black text-white border-black w-fit mx-auto py-2 px-4 rounded-full  hover:bg-black/70 transition-colors"
 			>
 				Submit
 			</button>

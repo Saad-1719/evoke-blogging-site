@@ -49,7 +49,7 @@ const CommentSection = () => {
 							action=""
 							className="border border-rounded flex flex-col px-4 py-7 sm:py-14 sm:px-7 space-y-5 bg-white"
 						>
-							<div className="grid grid-cols-1 sm:grid-cols-2 w-full space-y-4 sm:space-x-7">
+							<div className="grid grid-cols-1 sm:grid-cols-2 w-full  sm:space-x-7">
 								<label className=" flex flex-col space-y-5">
 									<span className="font-medium">Name *</span>
 									<input
@@ -57,6 +57,7 @@ const CommentSection = () => {
 										className="py-3 rounded px-4 border border-gray-500"
 										value={name}
 										onChange={(e) => setName(e.target.value)}
+										required
 									/>
 								</label>
 								<label className=" flex flex-col space-y-5">
@@ -66,6 +67,7 @@ const CommentSection = () => {
 										className="py-3 rounded px-4 border border-gray-500"
 										value={email}
 										onChange={(e) => setEmail(e.target.value)}
+										required
 									/>
 								</label>
 							</div>
@@ -80,6 +82,7 @@ const CommentSection = () => {
 										value={message}
 										onChange={(e) => setMessage(e.target.value)}
 										className="py-3 rounded px-4 border border-gray-500"
+										required
 									></textarea>
 								</label>
 							</div>
