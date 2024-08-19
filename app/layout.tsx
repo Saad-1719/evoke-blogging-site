@@ -23,11 +23,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {/* <Login/> */}
-        <Editor/>
-        {/* <Navbar />
+        {/* <Editor/> */}
+        <Navbar />
         {children}
         <Newsletter />
-        <Footer/> */}
+        <Footer/>  *
       </body>
     </html>
 

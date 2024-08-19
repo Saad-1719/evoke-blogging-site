@@ -1,5 +1,6 @@
 import Layout from "@/components/home/LayoutWrapper";
 import React from "react";
+import Image from "next/image";
 
 const page = () => {
 	return (
@@ -10,14 +11,14 @@ const page = () => {
 				</h1>
 				<div className="grid  grid-cols-1 sm:grid-cols-2 pt-10 sm:space-x-10 space-y-4 p-4">
 					<div>
-						<img
+						<Image
 							src="/assets/hero/WhatsApp Image 2024-08-05 at 16.55.18_761007bb.jpg"
 							alt=""
 						/>
 					</div>
 					<div className="flex flex-col justify-center">
 						<p className="flex items-start text-gray-400 text-xs font-bold">
-							I'M SAAD
+							I&apos;M SAAD
 						</p>
 						<p className=" text-4xl">
 							I am a Software Engineer (50%), Hobby Blogger & a Photographer

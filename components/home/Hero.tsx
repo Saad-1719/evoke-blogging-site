@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import Layout from "./LayoutWrapper";
 import "aos/dist/aos.css";
+import Image from "next/image";
 
 const Hero = () => {
 	useEffect(() => {
@@ -62,9 +63,12 @@ const Hero = () => {
 					<div className=" pt-4 space-y-4 ">
 						<div className=" grid grid-cols-1 sm:grid-cols-2 place-items-stretch sm:space-x-10 ">
 							<div data-aos="fade-right">
-								<img
+								<Image
 									className="h-[250px] sm:h-[500px] w-[100%] object-cover"
 									src="/assets/hero/birmingham-museums-trust-BPWZ01FtySg-unsplash.jpg"
+									
+						width={400}
+						height={400}
 									alt=""
 								/>
 							</div>
@@ -108,10 +112,13 @@ const Hero = () => {
 
 						<div className=" grid grid-cols-1 sm:grid-cols-2 place-items-stretch sm:space-x-10 ">
 							<div data-aos="fade-right">
-								<img
+								<Image
 									className="h-[250px] sm:h-[500px] w-[100%] object-cover"
 									src="/assets/hero/birmingham-museums-trust-BPWZ01FtySg-unsplash.jpg"
 									alt=""
+									
+						width={400}
+						height={400}
 								/>
 							</div>
 							<div className="sm:w-3/4" data-aos="fade-left">
@@ -191,7 +198,7 @@ const Hero = () => {
 								</div>
 
 								<div data-aos="fade-left">
-									<img
+									<Image
 										src="/assets/hero/birmingham-museums-trust-BPWZ01FtySg-unsplash.jpg"
 										alt=""
 										style={{
@@ -223,8 +230,11 @@ const Hero = () => {
 
 						<div className=" grid grid-cols-2 place-items-stretch space-x-10 ">
 							<div data-aos="fade-right">
-								<img
+								<Image
 									src="/assets/hero/birmingham-museums-trust-BPWZ01FtySg-unsplash.jpg"
+									
+						width={400}
+						height={400}
 									alt=""
 									style={{
 										height: "500px",
@@ -310,8 +320,11 @@ const Hero = () => {
 							</div>
 
 							<div data-aos="fade-left">
-								<img
+								<Image
 									src="/assets/hero/birmingham-museums-trust-BPWZ01FtySg-unsplash.jpg"
+									
+						width={400}
+						height={400}
 									alt=""
 									style={{
 										height: "500px",

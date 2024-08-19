@@ -2,6 +2,7 @@ import Layout from "@/components/home/LayoutWrapper";
 import React from "react";
 import TextReveal from "@/components/ui/TextReveal";
 import CommentSection from "@/components/CommentSection";
+import Image from "next/image";
 
 const Blog = () => {
 	return (
@@ -9,9 +10,11 @@ const Blog = () => {
 			<Layout>
 				<div className="max-w-5xl py-8 mx-auto flex flex-col items-center">
 					<h1 className="text-7xl font-bold py-10">TITLE</h1>
-					<img
+					<Image
 						src="/assets/hero/birmingham-museums-trust-BPWZ01FtySg-unsplash.jpg"
 						alt=""
+						width={400}
+						height={400}
 						style={{
 							height: "50%",
 							width: "auto",
