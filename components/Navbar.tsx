@@ -62,13 +62,13 @@ const Navbar = () => {
 
 				{/* pc screen menu */}
 				<ul className="lg:flex lg:justify-center lg:items-center space-x-6 hidden">
-					{["/", "/blog", "/pov", "/gallery", "/aboutme"].map((href, index) => (
+					{["/", "/blog", "/pov", "/gallery", "/aboutme","/login"].map((href, index) => (
 						<Link
 							key={index}
 							href={href}
 							className="rounded-full px-4 py-2 text-gray-400 hover:text-black transition-colors duration-75 ease-in-out font-semibold hover:cursor-pointer underline-animation"
 						>
-							{["Home", "Blogs", "POV", "Gallery", "About Me"][index]}
+							{["Home", "Blogs", "POV", "Gallery", "About Me","Login"][index]}
 						</Link>
 					))}
 				</ul>
