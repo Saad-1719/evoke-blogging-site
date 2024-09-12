@@ -14,6 +14,8 @@ const page = () => {
 						<Image
 							src="/assets/hero/WhatsApp Image 2024-08-05 at 16.55.18_761007bb.jpg"
 							alt=""
+							width={400}
+							height={400}
 						/>
 					</div>
 					<div className="flex flex-col justify-center">
