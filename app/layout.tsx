@@ -27,7 +27,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Newsletter />
-        <Footer/>  *
+        <Footer/> 
       </body>
     </html>
 
