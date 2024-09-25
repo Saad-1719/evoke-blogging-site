@@ -1,6 +1,5 @@
 import Layout from "@/components/home/LayoutWrapper";
 import React from "react";
-import TextReveal from "@/components/ui/TextReveal";
 import CommentSection from "@/components/CommentSection";
 import Image from "next/image";
 
@@ -22,10 +21,7 @@ const Blog = () => {
 						}}
 					/>
 					<div className="leading-loose flex flex-col text-gray-300">
-						<TextReveal
-							text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius dolorem quibusdam voluptatem fuga, perferendis repudiandae excepturi voluptas debitis asperiores hic. 
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus nostrum ab quisquam mollitia eum soluta, vel placeat nobis eveniet incidunt. Quae iste, totam explicabo perferendis impedit et voluptatem nisi sapiente? Tempora sed, voluptatum nam possimus quas ut quam, dolorem soluta maxime minima ipsa consequuntur aliquid, reiciendis impedit accusamus sint harum odio sunt. Quidem dolorem vel consectetur blanditiis, facilis aut animi quisquam accusantium! Autem reiciendis pariatur fuga doloremque hic fugiat odit delectus ea tempora dolorem impedit laborum temporibus reprehenderit, rerum adipisci culpa, dicta sit quia tempore harum eligendi consequuntur. Repellat similique sapiente obcaecati nihil dolores ratione sed minus perspiciatis repudiandae exercitationem."
-						/>
+						
 					</div>
 				</div>
 			</Layout>

@@ -16,6 +16,7 @@ const page = () => {
 							alt=""
 							width={400}
 							height={400}
+							className="aspect-auto"
 						/>
 					</div>
 					<div className="flex flex-col justify-center">
