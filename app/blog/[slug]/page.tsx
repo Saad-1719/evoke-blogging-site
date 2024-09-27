@@ -4,24 +4,49 @@ import TextReveal from "@/components/ui/TextReveal";
 import CommentSection from "@/components/CommentSection";
 
 // Dynamic blog post page that fetches data based on the slug
-const BlogPost = async ({ params }: { params: { slug: string } }) => {
+interface Params {
+  params: {
+    slug: string;
+  };
+}
+
+const BlogPost = async ({ params }: Params) => {
   const { slug } = params;
 
-  // Fetch the blog post data from the API based on the slug
-  const res = await fetch(`http://localhost:3000/api/getBlogs/${slug}`, {
+  // Fetch all blog posts from the API
+  const res = await fetch(`http://localhost:3000/api/getBlogs`, {
     cache: 'no-store', // Disables caching for fresh data each time
   });
 
   if (!res.ok) {
-    // Handle the error if the blog post is not found
-    return <div>Blog post not found.</div>;
+    // Handle the error if the blog posts cannot be fetched
+    return (
+      <section className="w-full pb-20 bg-slate-100 text-black flex items-center justify-center overflow-x-hidden flex-col">
+        <Layout>
+          <div className="max-w-5xl py-8 mx-auto flex flex-col items-center">
+            <h1 className="text-5xl font-bold py-10">Error fetching blog posts.</h1>
+          </div>
+        </Layout>
+      </section>
+    );
   }
 
-  const blogPost = await res.json();
+  const blogPosts = await res.json();
+
+  // Find the blog post that matches the incoming slug
+  const blogPost = blogPosts.find(post => post.slug === slug);
 
   // Check if the blogPost matches the expected structure
   if (!blogPost || !blogPost.title || !blogPost.imageUrl || !blogPost.content) {
-    return <div>Error: Blog post data is incomplete.</div>;
+    return (
+      <section className="w-full pb-20 bg-slate-100 text-black flex items-center justify-center overflow-x-hidden flex-col">
+        <Layout>
+          <div className="max-w-5xl py-8 mx-auto flex flex-col items-center">
+            <h1 className="text-5xl font-bold py-10">Blog post not found or data is incomplete.</h1>
+          </div>
+        </Layout>
+      </section>
+    );
   }
 
   return (
@@ -44,7 +69,7 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
             <TextReveal text={blogPost.content} />
           </div>
           <div className="mt-5 text-gray-500">
-            <p>Author ID: {blogPost.authorId}</p>
+            {/* <p>Author ID: {blogPost.authorId}</p> */}
             <p>Date Added: {new Date(blogPost.dateAdded).toLocaleDateString()}</p>
           </div>
         </div>
