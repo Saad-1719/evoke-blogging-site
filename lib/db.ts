@@ -10,9 +10,7 @@ const db = new Pool({
   password: process.env.PG_PASSWORD,
   database: process.env.PG_DATABASE,
   port: parseInt(process.env.PG_PORT || '5432', 10),  // PostgreSQL default port is 5432
-  ssl: {
-    rejectUnauthorized: process.env.PG_SSL === 'true',  // Set to true in production
-  },
+  ssl: process.env.PG_SSL === 'true' ? { rejectUnauthorized: false } : false, // Enable SSL in production, but ignore unauthorized certificates
 });
 
 export default db;
