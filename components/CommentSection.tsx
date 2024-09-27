@@ -1,6 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import Layout from "./home/LayoutWrapper";
+import React, { useState, useEffect,useCallback } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -27,7 +26,7 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    const fetchComments = async () => {
+    const fetchComments = useCallback(async () => {
         const res = await fetch(`/api/comments/${blogId}`);
         if (res.ok) {
             const data = await res.json();
@@ -35,11 +34,11 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
         } else {
             toast.error("Failed to fetch comments", { position: "top-center", autoClose: 3000 });
         }
-    };
+    }, [blogId]); // Only re-define if blogId changes
 
     useEffect(() => {
         fetchComments();
-    }, [blogId]);
+    }, [fetchComments]);
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault(); 
