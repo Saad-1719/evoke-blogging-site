@@ -1,8 +1,9 @@
 import Hero from "@/components/home/Hero";
-import Image from "next/image";
-import Blog from "./blog/page";
+import LatestBlogs from "@/components/LatestBlogs";
 export default function Home() {
   return <main>
-    <Hero />
+    <Hero>
+      <LatestBlogs/>
+      </Hero>
   </main>;
 }
