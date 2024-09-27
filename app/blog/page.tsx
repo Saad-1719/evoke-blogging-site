@@ -7,7 +7,7 @@ const Blog = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/getBlogs`);
 
   if (!res.ok) {
-    throw new Error('Failed to fetch blogs');
+    throw new Error('Failed to fetch blogs main blog page');
   }
 
   const blogs = await res.json();
