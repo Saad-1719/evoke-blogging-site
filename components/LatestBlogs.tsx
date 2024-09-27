@@ -5,7 +5,7 @@ import { use } from 'react';
 
 // Fetch and sort blogs by dateAdded in descending order (latest first)
 async function getBlogs() {
-  const res = await fetch('http://localhost:3000/api/getBlogs');
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/getBlogs`);
   
   if (!res.ok) {
     throw new Error('Failed to fetch blogs');
