@@ -64,13 +64,13 @@ const Navbar = () => {
 
 				{/* pc screen menu */}
 				<ul className="lg:flex lg:justify-center lg:items-center space-x-6 hidden">
-					{["/", "/blog", "/pov", "/aboutme"].map((href, index) => (
+					{["/", "/blog", "/aboutme"].map((href, index) => (
 						<Link
 							key={index}
 							href={href}
 							className="rounded-full px-4 py-2 text-gray-400 hover:text-black transition-colors duration-75 ease-in-out font-semibold hover:cursor-pointer underline-animation"
 						>
-							{["Home", "Blogs", "POV", "About Me"][index]}
+							{["Home", "Blogs", "About Me"][index]}
 						</Link>
 					))}
 				</ul>
@@ -80,14 +80,14 @@ const Navbar = () => {
 			{view && (
 				<div className={`flex flex-col absolute top-16 right-0 w-full p-4 z-10 bg-slate-50 lg:hidden transition-transform duration-300 ease-in-out ${view ? "scale-100" : "scale-0"}`}>
 					<ul className="flex flex-col items-center space-y-2 w-3/4 sm:w-1/4 mx-auto text-center">
-						{["/", "/blog", "/pov", "/aboutme"].map((href, index) => (
+						{["/", "/blog", "/aboutme"].map((href, index) => (
 							<Link
 								key={index}
 								href={href}
 								className="rounded-lg bg-black w-full py-2 text-white/90"
 								onClick={()=>setView(!view)}
 							>
-								{["Home", "Blogs", "POV", "About Me"][index]}
+								{["Home", "Blogs", "About Me"][index]}
 							</Link>
 						))}
 					</ul>
