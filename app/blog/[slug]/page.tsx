@@ -44,7 +44,6 @@ const BlogPost = async ({ params }: Params) => {
     imageUrl: string;
     content: string;
     dateAdded: string;
-    // Add other fields if necessary
   }
 
   const blogPost = blogPosts.find((post: BlogPost) => post.slug === slug);
