@@ -1,31 +1,21 @@
 import React from "react";
 import Image from 'next/image';
 import Link from "next/link";
-import { use } from 'react';
 
-// Fetch and sort blogs by dateAdded in descending order (latest first)
-async function getBlogs() {
-  console.log('API Base URL blog component:', process.env.NEXT_PUBLIC_API_BASE_URL);
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/getBlogs`);
-  
-  if (!res.ok) {
-    console.error('Failed to fetch blogs:', res.status, res.statusText);
-    throw new Error('Failed to fetch blogs blog component');
-  }
+interface Blog {
+  slug: string;
+  imageUrl: string;
+  title: string;
+  content: string;
+  dateAdded: string;
+}
 
-  const blogs = await res.json();
-  // console.log(blogs);
-
-  // Sort blogs by dateAdded in descending order
-  return blogs.sort((a: { dateAdded: string }, b: { dateAdded: string }) => {
-    return new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime();
-  });
+interface LatestBlogsProps {
+  blogs: Blog[];
 }
 
 // Server component to display the latest blogs
-export default function LatestBlogs() {
-  const blogs = use(getBlogs());
-
+export default function LatestBlogs({ blogs }: LatestBlogsProps) {
   return (
     <section className="w-full px-4 mx-auto pb-8 bg-slate-100 text-black flex justify-center overflow-x-hidden">
       <div className="max-w-7xl w-full">
@@ -33,7 +23,7 @@ export default function LatestBlogs() {
           Latest
         </h1>
         <div className="pt-4 space-y-8">
-          {blogs.slice(0, 2).map((blog: { slug: string; title: string; content?: string; imageUrl: string }) => (
+          {blogs.slice(0, 2).map((blog) => (
             <Link
               href={`/blog/${blog.slug}`}
               key={blog.slug}
@@ -80,5 +70,31 @@ export default function LatestBlogs() {
         </div>
       </div>
     </section>
-  )
+  );
+}
+
+// Fetching data on the server side
+export async function getServerSideProps() {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/getBlogs`);
+
+    if (!res.ok) {
+      console.error('Failed to fetch blogs:', res.status, res.statusText);
+      return { props: { blogs: [] } }; // Return an empty array on error
+    }
+
+    const blogs = await res.json();
+
+    // Sort blogs by dateAdded in descending order
+    const sortedBlogs = blogs.sort((a: Blog, b: Blog) => new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime());
+
+    return {
+      props: {
+        blogs: sortedBlogs,
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching blogs:', error);
+    return { props: { blogs: [] } }; // Return an empty array on error
+  }
 }

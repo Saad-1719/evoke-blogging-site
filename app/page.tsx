@@ -3,7 +3,7 @@ import LatestBlogs from "@/components/LatestBlogs";
 export default function Home() {
   return <main>
     <Hero>
-      <LatestBlogs/>
+      <LatestBlogs blogs={[]}/>
       </Hero>
   </main>;
 }
