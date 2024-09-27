@@ -30,7 +30,9 @@ const CommentSection = () => {
 					{/* comment section */}
 
 					<h1 className="font-light text-4xl">Commenets</h1>
-					<div className="space-y-2">
+					<h1 className="font-light text-2xl">Comming Soon :)</h1>
+
+					{/* <div className="space-y-2">
 						<h3 className="font-bold text-xl">John Doe</h3>
 						<p>January 31, 2021 at 10:20am</p>
 						<p className="max-w-3xl ">
@@ -39,11 +41,11 @@ const CommentSection = () => {
 							officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum
 							impedit necessitatibus, nihil?
 						</p>
-					</div>
+					</div> */}
 
 					{/*comment posting form  */}
 
-					<div className="">
+					{/* <div className="">
 						<h1 className="pb-10 font-light text-4xl">Leave a Comment</h1>
 						<form
 							action=""
@@ -93,7 +95,7 @@ const CommentSection = () => {
 								Post Comment
 							</button>
 						</form>
-					</div>
+					</div> */}
 				</div>
 			</Layout>
 		</section>
