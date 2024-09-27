@@ -4,6 +4,7 @@ import Layout from "@/components/home/LayoutWrapper";
 
 const Blog = async () => {
   // Fetch all blogs from the API
+  
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/getBlogs`);
 
   if (!res.ok) {
