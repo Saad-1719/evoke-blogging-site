@@ -1,10 +1,11 @@
-"use client"
+"use client";
 import React, { useState } from 'react';
 import Layout from './home/LayoutWrapper';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Newsletter = () => {
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,13 +23,22 @@ const Newsletter = () => {
       const data = await res.json();
 
       if (res.ok) {
-        setMessage(data.message);
+        toast.success(data.message || 'Subscribed successfully!', {
+          position: "top-center",
+          autoClose: 3000,
+        });
         setEmail(''); // Clear input field after successful submission
       } else {
-        setMessage(data.error || 'Something went wrong');
+        toast.error(data.error || 'Something went wrong', {
+          position: "top-center",
+          autoClose: 3000,
+        });
       }
     } catch (error) {
-      setMessage('Error subscribing. Please try again.');
+      toast.error('Error subscribing. Please try again.', {
+        position: "top-center",
+        autoClose: 3000,
+      });
     }
   };
 
@@ -58,11 +68,9 @@ const Newsletter = () => {
               Subscribe
             </button>
           </form>
-          {message && (
-            <p className="mt-2 text-center text-sm text-red-500">{message}</p>
-          )}
         </div>
       </Layout>
+      <ToastContainer />
     </div>
   );
 };

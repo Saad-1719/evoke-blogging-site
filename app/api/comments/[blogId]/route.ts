@@ -1,28 +1,13 @@
-// import { NextResponse } from 'next/server';
-// import db  from '../../../../lib/db'; // Adjust the import based on your database setup
-
-// // GET method to fetch comments for a specific blog post
-// export async function GET(req: Request, { params }: { params: { blogId: string } }) {
-//     const { blogId } = params;
-    
-//     try {
-//         const comments = await db.query('SELECT * FROM comment WHERE blogId = ?', [blogId]); // Adjust SQL query as needed
-//         return NextResponse.json(comments);
-//     } catch (error) {
-//         console.error(error);
-//         return NextResponse.json({ error: 'Failed to fetch comments' }, { status: 500 });
-//     }
-// }
-
-import pool from '../../../../lib/db';
+import db from '../../../../lib/db'; // Importing from the PostgreSQL connection file
 import { z } from 'zod';
+import { NextResponse } from 'next/server';
 
 // Define Zod schema for validation
 const commentSchema = z.object({
     blogId: z.number().int().positive(),
     content: z.string().min(1, "Content cannot be empty"),
-    name: z.string().min(1, "Content cannot be empty"),
-    email: z.string().min(1, "Content cannot be empty"),
+    name: z.string().min(1, "Name cannot be empty"),
+    email: z.string().email("Invalid email address").min(1, "Email cannot be empty"),
 });
 
 // POST method to add a comment
@@ -38,15 +23,17 @@ export async function POST(req: Request) {
         });
     }
 
-    const { blogId, content,name,email } = result.data;
+    const { blogId, content, name, email } = result.data;
 
     try {
-        const [result]: any = await pool.query(
-            'INSERT INTO comment (blogId, commentText,name,email) VALUES (?, ?,?,?)',
-            [blogId, content, name, email] 
+        const res = await db.query(
+            'INSERT INTO "Comment" ("blogId", "commentText", "name", "email") VALUES ($1, $2, $3, $4) RETURNING id',
+            [blogId, content, name, email]
         );
 
-        return new Response(JSON.stringify({ message: 'Comment added', commentId: result.insertId }), {
+        const commentId = res.rows[0].id; // Access the ID of the newly inserted comment
+
+        return new Response(JSON.stringify({ message: 'Comment added', commentId }), {
             status: 201,
             headers: {
                 'Content-Type': 'application/json',
@@ -68,8 +55,8 @@ export async function GET(req: Request, { params }: { params: { blogId: number }
     const { blogId } = params; // Extract blogId from route parameters
 
     try {
-        const [rows] = await pool.query('SELECT * FROM comment WHERE blogId = ?', [blogId]);
-        return new Response(JSON.stringify(rows), {
+        const res = await db.query('SELECT * FROM "Comment" WHERE "blogId" = $1', [blogId]);
+        return new Response(JSON.stringify(res.rows), {
             status: 200,
             headers: {
                 'Content-Type': 'application/json',
@@ -84,4 +71,12 @@ export async function GET(req: Request, { params }: { params: { blogId: number }
             },
         });
     }
+}
+
+export async function PUT() {
+    return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
+}
+
+export async function DELETE() {
+    return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
 }

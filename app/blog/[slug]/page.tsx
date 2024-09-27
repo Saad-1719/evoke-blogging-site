@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Layout from "@/components/home/LayoutWrapper";
 import CommentSection from "@/components/CommentSection";
-import { Poppins } from "next/font/google";
+import { Inter } from "next/font/google";
 
 // Dynamic blog post page that fetches data based on the slug
 interface Params {
@@ -10,7 +10,7 @@ interface Params {
   };
 }
 
-const inter = Poppins({
+const inter = Inter({
   subsets: ["latin"],
   weight: "400",
 });
@@ -78,8 +78,8 @@ const BlogPost = async ({ params }: Params) => {
         className="w-auto max-w-3xl h-[550px] rounded-lg" // Set a max width and make it scale down for smaller screens
       />
 
-      <div className=" text-gray-700 text-left w-full sm:w-3/4 md:w-2/3 lg:w-1/2">
-        <p>Date Added: {new Date(blogPost.dateAdded).toLocaleDateString()}</p>
+      <div className=" text-gray-700 text-left w-full px-9 ">
+        <p>Date Written: {new Date(blogPost.dateAdded).toLocaleDateString()}</p>
       </div>
 
       {/* Blog content with adjusted max width for readability */}

@@ -12,7 +12,7 @@ async function getBlogs() {
   }
 
   const blogs = await res.json();
-  console.log(blogs);
+  // console.log(blogs);
 
   // Sort blogs by dateAdded in descending order
   return blogs.sort((a: { dateAdded: string }, b: { dateAdded: string }) => {

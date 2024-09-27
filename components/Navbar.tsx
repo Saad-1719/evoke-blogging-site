@@ -34,9 +34,9 @@ const Navbar = () => {
 			
 			<nav className="flex justify-between items-center py-4 px-4 xl:px-0 w-full sm:max-w-7xl mx-auto">
 				<ul>
-					<li className="flex text-2xl font-bold text-black sm:py-2 ">
+					<Link href="/" className="flex text-2xl font-bold text-black sm:py-2 ">
 						Evoke.
-					</li>
+					</Link>
 				</ul>
 
 				{/* hamburger */}

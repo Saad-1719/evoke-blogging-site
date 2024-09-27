@@ -1,18 +1,19 @@
 import Layout from "@/components/home/LayoutWrapper";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const page = () => {
 	return (
 		<section className="w-full pb-20 bg-slate-100 text-black flex items-center justify-center overflow-x-hidden flex-col">
 			<Layout>
-				<h1 className="py-10 flex items-center justify-center font-bold text-5xl">
+				<h1 className="py-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center">
 					About Me
 				</h1>
-				<div className="grid  grid-cols-1 sm:grid-cols-2 pt-10 sm:space-x-10 space-y-4 p-4">
+				<div className="grid  grid-cols-1 sm:grid-cols-2 pt-4 sm:space-x-10 space-y-4 p-4 place-items-center">
 					<div>
 						<Image
-							src="/assets/hero/WhatsApp Image 2024-08-05 at 16.55.18_761007bb.jpg"
+							src="https://i.imghippo.com/files/5RbeK1727467321.jpg"
 							alt=""
 							width={400}
 							height={400}
@@ -24,21 +25,21 @@ const page = () => {
 							I&apos;M SAAD
 						</p>
 						<p className=" text-4xl">
-							I am a Software Engineer (50%), Hobby Blogger & a Photographer
+							I am a Software Engineering Sudent and Hobby Blogger
 							Based in Pakistan
 						</p>
 						<ul className="py-4 space-y-4">
 							{/* list items */}
 
 							{/* software engineer */}
-							<li className="bg-white px-6 py-4 flex items-center justify-center space-x-4 hover:text-white hover:bg-gray-900 transition-all duration-150 ease-in-out hover:stroke-white">
+							<Link href="https://saaadi.netlify.app/" target="_blank" className="bg-white px-6 py-4 flex items-center justify-center space-x-4 hover:text-white hover:bg-gray-900 transition-all duration-150 ease-in-out hover:stroke-white">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
 									strokeWidth={1.25}
 									stroke="currentColor"
-									className="size-20"
+									className="size-21"
 								>
 									<path
 										strokeLinecap="round"
@@ -49,25 +50,23 @@ const page = () => {
 
 								<span>
 									<h1 className="py-2 font-semibold text-xl">
-										Software Engineer
+										Software Engineer To Be
 									</h1>
 									<p className="font-medium text-gray-400">
-										Far far away, behind the word mountains, far from the
-										countries Vokalia and Consonantia, there live the blind
-										texts.
+									As a software engineering student, I navigate a world where logic meets creativity, and every line of code is a step toward innovation. Yet, beneath the algorithms and problem-solving lies something deeper—personal experiences, challenges, and growth. Through the lens of software development, I explore how the past informs the future, how each bug fixed or feature built mirrors our own journeys of learning and transformation.
 									</p>
 								</span>
-							</li>
+							</Link>
 
 							{/* blogger */}
-							<li className="bg-white px-6 py-4 flex items-center justify-center space-x-4 hover:text-white hover:bg-gray-900 transition-all duration-150 ease-in-out hover:stroke-white">
+							<Link href="/blog" className="bg-white px-6 py-4 flex items-center justify-center space-x-4 hover:text-white hover:bg-gray-900 transition-all duration-150 ease-in-out hover:stroke-white">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
 									strokeWidth={1.25}
 									stroke="currentColor"
-									className="size-20"
+									className="size-21"
 								>
 									<path
 										strokeLinecap="round"
@@ -79,42 +78,10 @@ const page = () => {
 								<span>
 									<h1 className="py-2 font-semibold text-xl">Hobby Blogger</h1>
 									<p className="font-medium text-gray-400">
-										Far far away, behind the word mountains, far from the
-										countries Vokalia and Consonantia, there live the blind
-										texts.
+									A gentle stream named Evoke flows through the landscapes of our lives, summoning memories and emotions that shape who we are. Here, we gather fragments of the past—moments of joy, sorrow, love, and reflection—to inspire growth and introspection. Each story is a ripple in the current, inviting you to explore your own journey, find meaning in your experiences, and connect with the shared human spirit.
 									</p>
 								</span>
-							</li>
-							<li className="bg-white px-6 py-4 flex items-center justify-center space-x-4 hover:text-white hover:bg-gray-900 transition-all duration-150 ease-in-out hover:stroke-white">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									strokeWidth={1.25}
-									stroke="currentColor"
-									className="size-20"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z"
-									/>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z"
-									/>
-								</svg>
-
-								<span>
-									<h1 className="py-2 font-semibold text-xl">Photographer</h1>
-									<p className="font-medium text-gray-400">
-										Far far away, behind the word mountains, far from the
-										countries Vokalia and Consonantia, there live the blind
-										texts.
-									</p>
-								</span>
-							</li>
+							</Link>
 						</ul>
 					</div>
 				</div>

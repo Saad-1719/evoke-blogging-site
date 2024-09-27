@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Layout from "./home/LayoutWrapper";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface CommentSectionProps {
     blogId: number;
@@ -10,7 +12,6 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
-    const [error, setError] = useState("");
     
     interface Comment {
         id: number;
@@ -32,7 +33,7 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
             const data = await res.json();
             setComments(data);
         } else {
-            console.error("Failed to fetch comments");
+            toast.error("Failed to fetch comments", { position: "top-center", autoClose: 3000 });
         }
     };
 
@@ -44,11 +45,11 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
         e.preventDefault(); 
         
         if (name.trim() === "") {
-            setError("Name is Required");
+            toast.error("Name is required", { position: "top-center", autoClose: 3000 });
         } else if (!isEmailValid(email)) {
-            setError("Invalid Email Format");
+            toast.error("Invalid email format", { position: "top-center", autoClose: 3000 });
         } else if (message.trim() === "") {
-            setError("Message Field is Empty");
+            toast.error("Message field is empty", { position: "top-center", autoClose: 3000 });
         } else {
             try {
                 const res = await fetch('/api/comments/[blogId]', {
@@ -68,25 +69,24 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
                     setName("");
                     setEmail("");
                     setMessage("");
-                    setError("");
                     fetchComments();
+                    toast.success("Comment added successfully!", { position: "top-center", autoClose: 3000 });
                 } else {
                     const errorData = await res.json();
-                    setError(errorData.error || "Failed to add comment");
+                    toast.error(errorData.error || "Failed to add comment", { position: "top-center", autoClose: 3000 });
                 }
             } catch (error) {
                 console.error("Error while posting comment:", error);
-                setError("An unexpected error occurred");
+                toast.error("An unexpected error occurred", { position: "top-center", autoClose: 3000 });
             }
         }
     }
 
     return (
         <section className="w-full sm:pt-8 sm:pb-8 bg-slate-100 text-black flex items-center justify-start overflow-x-hidden flex-col">
-            <Layout>
-                <div className=" mx-auto space-y-6 sm:p-0">
+            <div className="max-w-7xl mx-auto w-full px-7">
+                <div className="mx-auto space-y-6 sm:p-0">
                     <h1 className="font-light text-4xl">Comments</h1>
-                    {error && <p className="text-red-500">{error}</p>}
 
                     {/* Render existing comments or 'Be the first to add a comment' */}
                     <div className="space-y-4 pl-4 ">
@@ -94,7 +94,7 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
                             comments.map((comment) => (
                                 <div key={comment.id} className="space-y-2">
                                     <h3 className="font-light text-2xl">{comment.name}</h3>
-                                    <p className=" text-gray-700 text-xs">Date Added: {new Date(comment.createdAt).toLocaleString()}</p>
+                                    <p className="text-gray-700 text-xs">Date Added: {new Date(comment.createdAt).toLocaleDateString()}</p>
                                     <p className="text-lg text-gray-700 font-medium">{comment.commentText}</p>
                                 </div>
                             ))
@@ -154,7 +154,8 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
                         </form>
                     </div>
                 </div>
-            </Layout>
+            </div>
+            <ToastContainer />
         </section>
     );
 };
