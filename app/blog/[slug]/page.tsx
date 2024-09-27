@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Layout from "@/components/home/LayoutWrapper";
-import TextReveal from "@/components/ui/TextReveal";
 import CommentSection from "@/components/CommentSection";
 
 // Dynamic blog post page that fetches data based on the slug
@@ -65,8 +64,12 @@ const BlogPost = async ({ params }: Params) => {
               objectFit: "cover",
             }}
           />
-          <div className="leading-loose flex flex-col text-gray-700">
-            <TextReveal text={blogPost.content} />
+          <div className=" text-gray-700 max-w-5xl mx-auto">
+            {/* <TextReveal text={blogPost.content} /> */}
+            <p className="max-w-5xl mx-auto">
+            {blogPost.content}
+
+            </p>
           </div>
           <div className="mt-5 text-gray-500">
             {/* <p>Author ID: {blogPost.authorId}</p> */}
@@ -74,9 +77,11 @@ const BlogPost = async ({ params }: Params) => {
           </div>
         </div>
       </Layout>
+
       <CommentSection />
     </section>
   );
 };
 
 export default BlogPost;
+
