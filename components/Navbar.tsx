@@ -25,11 +25,13 @@ const Navbar = () => {
 	}, []);
 
 	return (
+		<>
 		<header
-			className={`bg-slate-50 backdrop-blur-lg fixed flex items-center top-0 left-0 w-full z-10 transition-transform duration-300 ${
-				isVisible ? "translate-y-0" : "-translate-y-full"
+			className={`bg-slate-50 backdrop-blur-lg fixed flex items-center top-5 left-0 w-full z-10 transition-transform duration-300 ${
+				isVisible ? "translate-y-0" : "-translate-y-[160%]"
 			}`}
 		>
+			
 			<nav className="flex justify-between items-center py-4 px-4 xl:px-0 w-full sm:max-w-7xl mx-auto">
 				<ul>
 					<li className="flex text-2xl font-bold text-black sm:py-2 ">
@@ -76,7 +78,7 @@ const Navbar = () => {
 
 			{/* mobile and tab view menu */}
 			{view && (
-				<div className={`flex flex-col absolute top-20 right-0 w-full p-4 z-10 bg-slate-50 lg:hidden transition-transform duration-300 ease-in-out ${view ? "scale-100" : "scale-0"}`}>
+				<div className={`flex flex-col absolute top-16 right-0 w-full p-4 z-10 bg-slate-50 lg:hidden transition-transform duration-300 ease-in-out ${view ? "scale-100" : "scale-0"}`}>
 					<ul className="flex flex-col items-center space-y-2 w-3/4 sm:w-1/4 mx-auto text-center">
 						{["/", "/blog", "/pov", "/gallery", "/aboutme"].map((href, index) => (
 							<Link
@@ -91,7 +93,8 @@ const Navbar = () => {
 					</ul>
 				</div>
 			)}
-		</header>
+			</header>
+			</>
 	);
 };
 
