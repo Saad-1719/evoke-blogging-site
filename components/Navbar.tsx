@@ -27,7 +27,7 @@ const Navbar = () => {
 	return (
 		<>
 		<header
-			className={`bg-slate-50 backdrop-blur-lg fixed flex items-center top-5 left-0 w-full z-10 transition-transform duration-300 ${
+			className={`bg-slate-50 backdrop-blur-lg fixed flex items-center top-0 left-0 w-full z-10 transition-transform duration-300 ${
 				isVisible ? "translate-y-0" : "-translate-y-[160%]"
 			}`}
 		>
