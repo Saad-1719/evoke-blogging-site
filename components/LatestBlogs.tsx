@@ -84,12 +84,10 @@ export async function getServerSideProps() {
     }
 
     const blogs = await res.json();
-    console.log(blogs); // Check the structure of the fetched blogs
 
 
     // Sort blogs by dateAdded in descending order
     const sortedBlogs = blogs.sort((a: Blog, b: Blog) => new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime());
-    console.log(sortedBlogs); // See if they are sorted properly
 
 
     return {
