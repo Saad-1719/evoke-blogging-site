@@ -83,7 +83,7 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
 
     return (
         <section className="w-full sm:pt-8 sm:pb-8 bg-slate-100 text-black flex items-center justify-start overflow-x-hidden flex-col">
-            <div className="max-w-7xl mx-auto w-full px-7">
+            <div className="max-w-7xl mx-auto w-full pt-4">
                 <div className="mx-auto space-y-6 sm:p-0">
                     <h1 className="font-light text-4xl">Comments</h1>
 
@@ -104,7 +104,7 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
 
                     {/* Comment posting form */}
                     <div className="pb-4">
-                        <h1 className="pb-10 font-light text-4xl">Leave a Comment</h1>
+                        <h1 className="pb-4 font-light text-4xl">Leave a Comment</h1>
                         <form
                             onSubmit={handleSubmit}
                             className="border border-rounded flex flex-col px-4 py-7 sm:py-14 sm:px-7 space-y-5 bg-white"

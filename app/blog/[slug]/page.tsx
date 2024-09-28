@@ -64,7 +64,7 @@ const BlogPost = async ({ params }: Params) => {
   return (
     <section className="w-full px-4 pb-0 bg-slate-100 text-black flex items-center justify-center overflow-x-hidden flex-col">
   <Layout>
-    <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-4 pt-10">
+    <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-4 pt-10 ">
       {/* Adjust the title size for different screens */}
       <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">{blogPost.title}</h1>
 
@@ -74,16 +74,16 @@ const BlogPost = async ({ params }: Params) => {
         alt={blogPost.title}
         width={800}  // This sets a max width but won't stretch beyond the container
         height={400} // This maintains the aspect ratio
-        className="w-auto max-w-3xl h-[550px] rounded-lg" // Set a max width and make it scale down for smaller screens
+        className="w-auto sm:max-w-3xl h-auto sm:h-[550px] rounded-lg" // Set a max width and make it scale down for smaller screens
       />
 
-      <div className=" text-gray-700 text-left w-full px-9 ">
+      <div className=" text-gray-700 text-left w-full">
         <p>Date Written: {new Date(blogPost.dateAdded).toLocaleDateString()}</p>
       </div>
 
       {/* Blog content with adjusted max width for readability */}
       <div className="black max-w-7xl mx-auto text-left">
-        <pre className={`whitespace-pre-wrap text-base sm:text-lg md:text-xl lg:text-2xl ${inter.className} px-4 sm:px-6 md:px-8`}>
+        <pre className={`whitespace-pre-wrap text-base sm:text-lg md:text-xl lg:text-2xl ${inter.className}`}>
           {blogPost.content}
         </pre>
       </div>
