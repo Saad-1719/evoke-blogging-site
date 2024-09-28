@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
-import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,28 +28,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="canonical" href="https://evoke-blog.netlify.app/" />
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "Blog",
-              "name": "Evoke Blog",
-              "description": "A personal blog sharing stories and insights.",
-              "url": "https://evoke-blog.netlify.app/",
-              "author": {
-                "@type": "Person",
-                "name": "Saad"
-              },
-              "publisher": {
-                "@type": "Personal",
-                "name": "Evoke Blog"
-              }
-            }
-          `}
-        </script>
-      </head>
       <body className={inter.className}>
         <Banner />
         <Navbar />

@@ -38,14 +38,14 @@ export default function LatestBlogs({ blogs }: LatestBlogsProps) {
                   alt={blog.title}
                 />
               </div>
-              <div className="sm:w-3/4">
-                <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold underline underline-offset-2 pb-4 hover:scale-105 transition-all ease-in-out">
+              <div className="sm:w-3/4 space-y-6">
+                <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold underline underline-offset-2 hover:scale-105 transition-all ease-in-out line-clamp-5">
                   {blog.title}
                 </h1>
-                <p className="line-clamp-4 text-base sm:text-lg md:text-xl space-y-4">
+                <p className="line-clamp-4 text-base sm:text-lg md:text-xl">
                   {blog.content}
                 </p>
-                <span className="flex space-x-2 sm:font-semibold rounded-md border w-fit border-black p-2 bg-black text-white my-2 hover:scale-105 transition-all ease-in-out">
+                <span className="flex space-x-2 sm:font-semibold rounded-md border w-fit border-black p-2 bg-black text-white hover:scale-105 transition-all ease-in-out">
                   <span className="text-sm">Read More</span>
                   <span className="flex items-center justify-center">
                     <svg
@@ -84,9 +84,13 @@ export async function getServerSideProps() {
     }
 
     const blogs = await res.json();
+    console.log(blogs); // Check the structure of the fetched blogs
+
 
     // Sort blogs by dateAdded in descending order
     const sortedBlogs = blogs.sort((a: Blog, b: Blog) => new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime());
+    console.log(sortedBlogs); // See if they are sorted properly
+
 
     return {
       props: {
