@@ -50,7 +50,7 @@ const Blog = () => {
     <section className="w-full pb-20 bg-slate-100 text-black flex items-center justify-center flex-col">
       <Layout>
         <h1 className="text-4xl md:text-6xl lg:text-9xl font-bold py-10 text-center">Blogs</h1>
-        <div className="max-w-7xl mx-auto p-4">
+        <div className="max-w-7xl mx-auto p-4 flex items-center justify-center">
           <Suspense fallback={<div className="loader"></div>}>
             <BlogList />
           </Suspense>

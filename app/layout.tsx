@@ -5,13 +5,21 @@ import Navbar from "@/components/Navbar";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
-
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Evoke",
-  description: "A Personal Blogging Site",
+  title: "Evoke - Personal Blogging Site | Insights, Stories, and More",
+  description: "Evoke is your go-to personal blog featuring stories, insights, and inspiration on a variety of topics. Join the conversation!",
+  keywords: "personal blog, Evoke blog, stories, insights, lifestyle, blogging, inspiration",
+  openGraph: {
+    title: "Evoke - Personal Blogging Site",
+    description: "Discover stories, insights, and personal reflections on Evoke, your go-to personal blog.",
+    url: "https://evoke-blog.netlify.app/",
+    type: "website",
+  },
+  
 };
 
 export default function RootLayout({
@@ -21,17 +29,35 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="canonical" href="https://evoke-blog.netlify.app/" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Blog",
+              "name": "Evoke Blog",
+              "description": "A personal blog sharing stories and insights.",
+              "url": "https://evoke-blog.netlify.app/",
+              "author": {
+                "@type": "Person",
+                "name": "Saad"
+              },
+              "publisher": {
+                "@type": "Personal",
+                "name": "Evoke Blog"
+              }
+            }
+          `}
+        </script>
+      </head>
       <body className={inter.className}>
-        <Banner/>
+        <Banner />
         <Navbar />
         {children}
         <Newsletter />
-        <Footer/>
+        <Footer />
       </body>
     </html>
-
-    
   );
 }
-
-
