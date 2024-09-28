@@ -6,14 +6,6 @@ interface HeroProps {
 const Hero = ({ children }: HeroProps) => {
 
 	return (
-		// before modifitcation remember these
-		// py===0 in each section
-		// its the h1 that's using py
-		// px-4 for each section
-		// heading size = 5xl
-		// text size = xl
-		//
-
 		<>
 			{/* main section */}
 
