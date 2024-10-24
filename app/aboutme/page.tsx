@@ -39,12 +39,13 @@ const page = () => {
 					<div className="grid  grid-cols-1 sm:grid-cols-2 pt-4 sm:space-x-10 space-y-4 p-4 place-items-center">
 						<div>
 							<Image
-								src="https://i.imghippo.com/files/5RbeK1727467321.jpg"
+								// src="https://i.imghippo.com/files/5RbeK1727467321.jpg"
+								 src="https://res.cloudinary.com/dpb5t5j0u/image/upload/5RbeK1727467321_11_j2hrwm.jpg"
 								alt="Saad's Portrait"
 								width={400}
 								height={400}
 								className="aspect-auto"
-								referrerPolicy="no-referrer-when-downgrade"
+								// referrerPolicy="no-referrer-when-downgrade"
 							/>
 						</div>
 						<div className="flex flex-col justify-center">
