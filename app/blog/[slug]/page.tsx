@@ -71,9 +71,9 @@ const BlogPost = async ({ params }: Params) => {
 	return (
 		<section className="w-full px-4 pb-0 bg-slate-100 text-black flex items-center justify-center overflow-x-hidden flex-col">
 			<Layout>
+					<Suspense fallback={<div className="loader"></div>}>
 				<div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-4 pt-10 ">
 					{/* Adjust the title size for different screens */}
-					<Suspense fallback={<div className="loader"></div>}>
 						<h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
 							{blogPost.title}
 						</h1>
@@ -99,8 +99,8 @@ const BlogPost = async ({ params }: Params) => {
 								{blogPost.content}
 							</pre>
 						</div>
-					</Suspense>
 				</div>
+					</Suspense>
 			</Layout>
 
 			{/* Pass the blog slug to CommentSection */}
