@@ -44,6 +44,7 @@ const page = () => {
 								width={400}
 								height={400}
 								className="aspect-auto"
+								referrerPolicy="no-referrer-when-downgrade"
 							/>
 						</div>
 						<div className="flex flex-col justify-center">

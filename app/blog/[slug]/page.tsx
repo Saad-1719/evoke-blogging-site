@@ -83,6 +83,7 @@ const BlogPost = async ({ params }: Params) => {
 							width={800} 
 							height={400}
 							className="w-auto sm:max-w-3xl h-auto sm:h-[550px] rounded-lg"
+							referrerPolicy="no-referrer-when-downgrade"
 						/>
 						<div className=" text-gray-700 text-left w-full">
 							<p>

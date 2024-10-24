@@ -36,6 +36,7 @@ export default function LatestBlogs({ blogs }: LatestBlogsProps) {
                   width={400}
                   height={400}
                   alt={blog.title}
+                  referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
               <div className="sm:w-3/4 space-y-6">
