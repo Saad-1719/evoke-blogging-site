@@ -77,7 +77,9 @@ export default function LatestBlogs({ blogs }: LatestBlogsProps) {
 // Fetching data on the server side
 export async function getServerSideProps() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/getBlogs`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/getBlogs`, {
+      cache: 'no-store',
+    });
 
     if (!res.ok) {
       console.error('Failed to fetch blogs:', res.status, res.statusText);
