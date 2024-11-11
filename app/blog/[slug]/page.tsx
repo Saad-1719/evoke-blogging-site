@@ -20,9 +20,9 @@ const BlogPost = async ({ params }: Params) => {
 	const { slug } = params;
 
 	// Fetch all blog posts from the API
-	const res = await fetch(
-		`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/getBlogs`
-	);
+	const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/getBlogs`, {
+        cache: 'no-store',
+      });
 
 	if (!res.ok) {
 		// Handle the error if the blog posts cannot be fetched
