@@ -1,7 +1,9 @@
 "use client";
-import React, { useState, useEffect,useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { ToastContainer, toast } from 'react-toastify';
+import { Oval } from 'react-loader-spinner'; // Import the loader
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-loader-spinner'
 
 interface CommentSectionProps {
     blogId: number;
@@ -11,7 +13,8 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
-    
+    const [loading, setLoading] = useState(false); // Loader state
+
     interface Comment {
         id: number;
         name: string;
@@ -34,15 +37,15 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
         } else {
             toast.error("Failed to fetch comments", { position: "top-center", autoClose: 3000 });
         }
-    }, [blogId]); // Only re-define if blogId changes
+    }, [blogId]);
 
     useEffect(() => {
         fetchComments();
     }, [fetchComments]);
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault(); 
-        
+        e.preventDefault();
+
         if (name.trim() === "") {
             toast.error("Name is required", { position: "top-center", autoClose: 3000 });
         } else if (!isEmailValid(email)) {
@@ -50,6 +53,7 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
         } else if (message.trim() === "") {
             toast.error("Message field is empty", { position: "top-center", autoClose: 3000 });
         } else {
+            setLoading(true); // Show loader during submission
             try {
                 const res = await fetch('/api/comments/[blogId]', {
                     method: 'POST',
@@ -77,6 +81,8 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
             } catch (error) {
                 console.error("Error while posting comment:", error);
                 toast.error("An unexpected error occurred", { position: "top-center", autoClose: 3000 });
+            } finally {
+                setLoading(false); // Hide loader after submission completes
             }
         }
     }
@@ -86,9 +92,7 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
             <div className="max-w-7xl mx-auto w-full pt-4">
                 <div className="mx-auto space-y-6 sm:p-0">
                     <h1 className="font-light text-4xl">Comments</h1>
-
-                    {/* Render existing comments or 'Be the first to add a comment' */}
-                    <div className="space-y-4 pl-4 ">
+                    <div className="space-y-4 pl-4">
                         {comments.length > 0 ? (
                             comments.map((comment) => (
                                 <div key={comment.id} className="space-y-2">
@@ -102,7 +106,6 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
                         )}
                     </div>
 
-                    {/* Comment posting form */}
                     <div className="pb-4">
                         <h1 className="pb-4 font-light text-4xl">Leave a Comment</h1>
                         <form
@@ -144,11 +147,25 @@ const CommentSection = ({ blogId }: CommentSectionProps) => {
                                     />
                                 </label>
                             </div>
+
                             <button
                                 type="submit"
-                                className="bg-yellow-400 w-fit px-4 py-2 font-bold rounded"
+                                className="bg-yellow-400 w-fit px-4 py-2 font-bold rounded flex items-center justify-center"
+                                disabled={loading} // Disable button while loading
                             >
-                                Post Comment
+                                {loading ? (
+                                    <Oval
+                                        height={20}
+                                        width={20}
+                                        color="#fff"
+                                        visible={true}
+                                        secondaryColor="#4fa94d"
+                                        strokeWidth={2}
+                                        strokeWidthSecondary={2}
+                                    />
+                                ) : (
+                                    "Post Comment"
+                                )}
                             </button>
                         </form>
                     </div>
