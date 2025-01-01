@@ -36,7 +36,7 @@ export default async function Home() {
     // Sort blogs by dateAdded in descending order
     blogs.sort((a, b) => new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime());
   } catch (error) {
-    console.error('Error fetching blogs:', error);
+  
   }
 
   return (

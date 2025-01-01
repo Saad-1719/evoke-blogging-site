@@ -18,7 +18,6 @@ export const metadata: Metadata = {
     url: "https://evoke-blog.netlify.app/",
     type: "website",
   },
-  
 };
 
 export default function RootLayout({
@@ -28,8 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="OdSAK5mCoVgKe8Q-n9D-K5GvZmCrXx5327Jhgb5kY-4"
+        />
+        </head>
       <body className={inter.className}>
-        {/* <Banner /> */}
         <Navbar />
         {children}
         <Newsletter />
