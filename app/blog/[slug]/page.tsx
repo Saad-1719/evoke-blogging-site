@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Image from "next/image";
 import Layout from "@/components/home/LayoutWrapper";
 import CommentSection from "@/components/CommentSection";
@@ -20,9 +21,12 @@ const BlogPost = async ({ params }: Params) => {
 	const { slug } = params;
 
 	// Fetch all blog posts from the API
-	const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/getBlogs`, {
-        cache: 'no-store',
-      });
+	const res = await fetch(
+		`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/getBlogs`,
+		{
+			cache: "no-store",
+		}
+	);
 
 	if (!res.ok) {
 		// Handle the error if the blog posts cannot be fetched
@@ -69,43 +73,71 @@ const BlogPost = async ({ params }: Params) => {
 	}
 
 	return (
-		<section className="w-full px-4 pb-0 bg-slate-100 text-black flex items-center justify-center overflow-x-hidden flex-col">
-			<Layout>
-					<Suspense fallback={<div className="loader"></div>}>
-				<div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-4 pt-10 ">
-					{/* Adjust the title size for different screens */}
-						<h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
-							{blogPost.title}
-						</h1>
-						<Image
-							src={blogPost.imageUrl}
-							alt={blogPost.title}
-							width={800} 
-							height={400}
-							className="w-auto sm:max-w-3xl h-auto sm:h-[550px] rounded-lg"
-							referrerPolicy="no-referrer-when-downgrade"
-						/>
-						<div className=" text-gray-700 text-left w-full">
-							<p>
-								Date Written:{" "}
-								{new Date(blogPost.dateAdded).toLocaleDateString()}
-							</p>
-						</div>
-						{/* Blog content with adjusted max width for readability */}
-						<div className="black max-w-7xl mx-auto text-left">
-							<pre
-								className={`whitespace-pre-wrap text-base sm:text-lg md:text-xl lg:text-2xl ${inter.className}`}
-							>
-								{blogPost.content}
-							</pre>
-						</div>
-				</div>
-					</Suspense>
-			</Layout>
+		<>
+			<Head>
+				<title>{blogPost.title} - Evoke Blog</title>
+				<meta
+					name="description"
+					content={blogPost.content.substring(0, 150) + "..."}
+				/>{" "}
+				{/* truncate content for desc */}
+				<meta
+					name="keywords"
+					content={`${blogPost.title} , Evoke Blog ,blog post`}
+				/>{" "}
+				{/*Add dynamic keywords for better SEO*/}
+				{/* Open Graph Meta Tags for Social Sharing */}
+				<meta property="og:title" content={blogPost.title} />
+				<meta
+					property="og:description"
+					content={blogPost.content.substring(0, 150) + "..."} //Same as desc
+				/>
+				<meta property="og:image" content={blogPost.imageUrl} />
+				<meta
+					property="og:url"
+					content={`https://evoke-blog.netlify.app/blog/${blogPost.slug}`}
+				/>
+				<meta property="og:type" content="article" />
+			</Head>
 
-			{/* Pass the blog slug to CommentSection */}
-			<CommentSection blogId={blogPost.id} />
-		</section>
+			<section className="w-full px-4 pb-0 bg-slate-100 text-black flex items-center justify-center overflow-x-hidden flex-col">
+				<Layout>
+					<Suspense fallback={<div className="loader"></div>}>
+						<div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-4 pt-10 ">
+							{/* Adjust the title size for different screens */}
+							<h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
+								{blogPost.title}
+							</h1>
+							<Image
+								src={blogPost.imageUrl}
+								alt={blogPost.title}
+								width={800}
+								height={400}
+								className="w-auto sm:max-w-3xl h-auto sm:h-[550px] rounded-lg"
+								referrerPolicy="no-referrer-when-downgrade"
+							/>
+							<div className=" text-gray-700 text-left w-full">
+								<p>
+									Date Written:{" "}
+									{new Date(blogPost.dateAdded).toLocaleDateString()}
+								</p>
+							</div>
+							{/* Blog content with adjusted max width for readability */}
+							<div className="black max-w-7xl mx-auto text-left">
+								<pre
+									className={`whitespace-pre-wrap text-base sm:text-lg md:text-xl lg:text-2xl ${inter.className}`}
+								>
+									{blogPost.content}
+								</pre>
+							</div>
+						</div>
+					</Suspense>
+				</Layout>
+
+				{/* Pass the blog slug to CommentSection */}
+				<CommentSection blogId={blogPost.id} />
+			</section>
+		</>
 	);
 };
 
