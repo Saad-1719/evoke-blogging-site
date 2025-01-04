@@ -15,7 +15,7 @@
     <lastmod>2024-02-29T00:00:00+00:00</lastmod>
      <priority>0.8</priority>
    </url>
-    <url>
+    <!-- <url>
     <loc>https://evoke-blog.netlify.app/blog/beyond-the-appearance</loc>
      <lastmod>2024-02-29T00:00:00+00:00</lastmod>
      <priority>0.8</priority>
@@ -49,6 +49,6 @@
     <loc>https://evoke-blog.netlify.app/blog/a-journey-to-software-engineering</loc>
      <lastmod>2024-02-29T00:00:00+00:00</lastmod>
      <priority>0.8</priority>
-   </url>
+   </url> -->
   <!-- Add more URLs for your other blog posts -->
 </urlset>
