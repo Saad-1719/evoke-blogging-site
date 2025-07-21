@@ -28,7 +28,7 @@ const Hero = ({ children }: HeroProps) => {
 						className="mt-4 text-xl w-3/4 sm:w-full flex justify-start lg:justify-end sm:text-2xl font-light "
 						
 					>
-						I am a Software Engineering Student and a Hobby Blogger <br /> Based in
+						I am a Software Engineer and a Hobby Blogger <br /> Based in
 						Pakistan
 					</p>
 				</div>

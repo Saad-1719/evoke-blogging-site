@@ -40,7 +40,7 @@ export default async function Home() {
   }
 
   return (
-    <main>
+    <main className="min-h-screen">
       <Hero>
         <LatestBlogs blogs={blogs} />
       </Hero>
