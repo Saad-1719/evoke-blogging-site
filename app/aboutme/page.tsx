@@ -79,7 +79,7 @@ const page = () => {
 											Software Engineer To Be
 										</h1>
 										<p className="font-medium text-gray-400">
-											Currently pursuing a degree in Software Engineering, I’m
+											As a Software Engineer, I’m
 											passionate about creating meaningful solutions through
 											code. From debugging complex problems to building
 											user-centric applications, I’m constantly driven by
